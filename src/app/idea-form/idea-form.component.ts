@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Idea } from "../idea";
-import { IDEAS } from "../ideas-list";
+import { Idea } from "../idea.model";
+// import { IDEAS } from "../ideas-list";
 
 @Component({
   selector: 'app-idea-form',
@@ -8,7 +8,7 @@ import { IDEAS } from "../ideas-list";
   styleUrls: ['./idea-form.component.css']
 })
 export class IdeaFormComponent implements OnInit {
-  ideas = IDEAS;
+  // ideas = IDEAS;
 
   constructor() { }
 
@@ -17,11 +17,11 @@ export class IdeaFormComponent implements OnInit {
 
 
   add(title: string, body: string, $event: any): void {
-    $event.preventDefault();
-    const idea = new Idea(Date.now(), title, body)
-    console.log(idea, this.ideas)
-    this.ideas.push(idea)
-    console.log(this.ideas)
+    // $event.preventDefault();
+    // const idea = new Idea(Date.now(), title, body)
+    // console.log(idea, this.ideas)
+    // this.ideas.push(idea)
+    // console.log(this.ideas)
   }
 
 }

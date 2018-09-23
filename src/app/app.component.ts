@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ideaBox';
+  ideas = [{id: 1, title: 'idea1', body: 'some text'}]
+
+  onAddIdea(idea: {id: number, title: string, body: string}) {
+    this.ideas.push(idea)
+  }
 }

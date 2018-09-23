@@ -1,4 +1,7 @@
 <h1>{{title}}</h1>
-<app-idea-form></app-idea-form>
-<app-idea-container></app-idea-container>
+<app-idea-form (addIdea)="onAddIdea($event)"></app-idea-form>
+<app-idea-container
+  *ngFor="let idea of ideas"
+  [idea]="idea"
+></app-idea-container>
 
