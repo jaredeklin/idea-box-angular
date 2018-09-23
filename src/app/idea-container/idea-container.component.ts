@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-idea-container',
@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class IdeaContainerComponent implements OnInit {
 
   @Input() idea: {id: number, title: string, body: string}
+  @Output() deleteIdea = new EventEmitter<{number}>()
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  removeIdea(id) {
+    this.deleteIdea.emit(id)
+  }
 }

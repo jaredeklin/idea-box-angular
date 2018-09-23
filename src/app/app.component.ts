@@ -12,4 +12,8 @@ export class AppComponent {
   onAddIdea(idea: {id: number, title: string, body: string}) {
     this.ideas.push(idea)
   }
+
+  onDeleteIdea(id: number) {
+    this.ideas = this.ideas.filter(idea => idea.id !== id)
+  }
 }

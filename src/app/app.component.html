@@ -3,5 +3,6 @@
 <app-idea-container
   *ngFor="let idea of ideas"
   [idea]="idea"
+  (deleteIdea)="onDeleteIdea($event)"
 ></app-idea-container>
 
