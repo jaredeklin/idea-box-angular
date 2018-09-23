@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Idea } from "../idea.model";
-// import { IDEAS } from "../ideas-list";
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-idea-form',
@@ -8,7 +8,9 @@ import { Idea } from "../idea.model";
   styleUrls: ['./idea-form.component.css']
 })
 export class IdeaFormComponent implements OnInit {
-  // ideas = IDEAS;
+  @Output() addIdea = new EventEmitter<{id: number, title: string, body: string}>()
+  title = '';
+  body = '';
 
   constructor() { }
 
@@ -16,12 +18,13 @@ export class IdeaFormComponent implements OnInit {
   }
 
 
-  add(title: string, body: string, $event: any): void {
-    // $event.preventDefault();
-    // const idea = new Idea(Date.now(), title, body)
-    // console.log(idea, this.ideas)
-    // this.ideas.push(idea)
-    // console.log(this.ideas)
+  add(event) {
+    event.preventDefault();
+    const idea = new Idea(Date.now(), this.title, this.body)
+
+    this.addIdea.emit(idea)
+    this.title = ''
+    this.body = ''
   }
 
 }

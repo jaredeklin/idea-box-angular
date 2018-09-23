@@ -1,10 +1,9 @@
 <form>
-  <input #ideaTitle type="text" placeholder="title"/>
-  <input #ideaBody type="text" placeholder="body" />
+  <input name="title" type="text" placeholder="title" [(ngModel)]="title"/>
+  <input name="body" type="text" placeholder="body" [(ngModel)]="body" />
   <button 
-    (click)="add(ideaTitle.value, ideaBody.value, $event); 
-    ideaBody.value=''; 
-    ideaTitle.value=''">Submit</button>
+    (click)="add($event)"
+    >Submit</button>
 </form>
 
 
